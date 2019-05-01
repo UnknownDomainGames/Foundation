@@ -9,6 +9,8 @@ version '1.0.0'
 
 sourceCompatibility = targetCompatibility = 11
 
+mainClassName = 'unknowndomain.engine.client.UnknownDomain'
+
 repositories {
     mavenLocal()
     maven {
