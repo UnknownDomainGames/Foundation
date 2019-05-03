@@ -21,7 +21,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.unknowndomaingame:EngineClient:1.0.0'
+    compile 'com.github.unknowndomaingame:EngineAPI:1.0.0'
+    runtimeOnly 'com.github.unknowndomaingame:EngineClient:1.0.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.1'
