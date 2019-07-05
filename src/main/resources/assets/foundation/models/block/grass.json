@@ -1,0 +1,8 @@
+{
+  "parent": "engine/models/block/cube_top_bottom.json",
+  "textures": {
+    "top": "foundation/textures/block/grass_top.png",
+    "bottom": "foundation/textures/block/dirt.png",
+    "side": "foundation/textures/block/grass_side.png"
+  }
+}

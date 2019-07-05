@@ -1,0 +1,6 @@
+{
+  "parent": "engine/models/block/cube_all.json",
+  "textures": {
+    "all": "foundation/textures/block/dirt.png"
+  }
+}
