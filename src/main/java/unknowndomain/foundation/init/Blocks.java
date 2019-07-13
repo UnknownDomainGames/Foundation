@@ -16,9 +16,9 @@ import static nullengine.mod.annotation.AutoListen.EventBus.MOD;
 @AutoListen(value = MOD)
 public class Blocks {
 
-    public static final Block GRASS = new BaseBlock().registerName("grass");
+    public static final Block GRASS = new BaseBlock().name("grass");
 
-    public static final Block DIRT = new BaseBlock().registerName("dirt");
+    public static final Block DIRT = new BaseBlock().name("dirt");
 
     @Listener
     public void onPreInit(ModLifecycleEvent.PreInitialization event) {
