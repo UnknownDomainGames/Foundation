@@ -15,22 +15,18 @@ import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
 import nullengine.player.Player;
 import nullengine.world.WorldCommon;
-import nullengine.world.WorldCommonProvider;
-import nullengine.world.gen.ChunkGeneratorFlat;
+import nullengine.world.impl.FlatWorldCreationSetting;
 
 @AutoRegister
 @AutoListen(value = AutoListen.EventBus.ENGINE)
-public class WorldProviders {
-    public static final WorldCommonProvider FLAT = (WorldCommonProvider) new WorldCommonProvider().setChunkGenerator(new ChunkGeneratorFlat()).name("flat");
+public class GameInitializer {
 
     @Listener
     public void onGameCreated(GameCreationEvent.Post event) {
-        var provider = FLAT;
         var game = event.getGame();
         var dirt = Blocks.DIRT;
         var grass = Blocks.GRASS;
-        provider.getChunkGenerator().setSetting(new ChunkGeneratorFlat.Setting().setLayers(new Block[]{dirt, dirt, dirt, dirt, grass}));
-        var world = (WorldCommon) game.spawnWorld(provider, "default");
+        var world = (WorldCommon) game.createWorld("engine:flat", "default", FlatWorldCreationSetting.create().layers(new Block[]{dirt, dirt, dirt, dirt, grass}));
         if (game instanceof GameClient) {
             Player player = ((GameClient) game).getPlayer();
             world.playerJoin(player);
@@ -39,9 +35,9 @@ public class WorldProviders {
     }
 
     @Listener
-    public void onGameStarted(GameStartEvent.Post event){
+    public void onGameStarted(GameStartEvent.Post event) {
         if (event.getGame() instanceof GameClient && Platform.isClient()) {
-            var game = (GameClient)event.getGame();
+            var game = (GameClient) event.getGame();
             var player = game.getPlayer();
             RenderContext renderContext = Platform.getEngineClient().getRenderContext();
             renderContext.setCamera(new FirstPersonCamera(player));
