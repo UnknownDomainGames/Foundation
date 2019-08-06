@@ -2,7 +2,7 @@ package unknowndomain.foundation.init;
 
 import nullengine.block.BaseBlock;
 import nullengine.block.Block;
-import nullengine.client.asset.AssetPath;
+import nullengine.client.asset.AssetURL;
 import nullengine.client.rendering.block.BlockRenderer;
 import nullengine.client.rendering.block.DefaultBlockRenderer;
 import nullengine.event.Listener;
@@ -22,8 +22,7 @@ public class Blocks {
 
     @Listener
     public void onPreInit(ModLifecycleEvent.PreInitialization event) {
-        AssetPath blockModelPath = AssetPath.of("foundation", "models", "block");
-        GRASS.addComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(blockModelPath.resolve("grass.json")));
-        DIRT.addComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(blockModelPath.resolve("dirt.json")));
+        GRASS.addComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(AssetURL.of("block/grass")));
+        DIRT.addComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(AssetURL.of("block/dirt")));
     }
 }
