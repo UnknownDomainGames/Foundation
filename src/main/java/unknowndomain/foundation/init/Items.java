@@ -9,10 +9,8 @@ import nullengine.item.Item;
 import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
 
-import static nullengine.mod.annotation.AutoListen.EventBus.MOD;
-
 @AutoRegister
-@AutoListen(value = MOD)
+@AutoListen(bus = AutoListen.Bus.MOD)
 public class Items {
 
     public static final Item GRASS = new BlockItem(Blocks.GRASS);
@@ -20,7 +18,7 @@ public class Items {
     public static final Item DIRT = new BlockItem(Blocks.DIRT);
 
     @Listener
-    public void onPreInit(ModLifecycleEvent.PreInitialization event) {
+    public static void onPreInit(ModLifecycleEvent.PreInitialization event) {
         GRASS.setComponent(ItemRenderer.class, new ItemBlockRenderer());
         DIRT.setComponent(ItemRenderer.class, new ItemBlockRenderer());
     }

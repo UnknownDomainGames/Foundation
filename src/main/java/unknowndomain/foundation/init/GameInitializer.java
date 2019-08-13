@@ -18,11 +18,11 @@ import nullengine.world.WorldCommon;
 import nullengine.world.impl.FlatWorldCreationSetting;
 
 @AutoRegister
-@AutoListen(value = AutoListen.EventBus.ENGINE)
+@AutoListen
 public class GameInitializer {
 
     @Listener
-    public void onGameCreated(GameCreationEvent.Post event) {
+    public static void onGameCreated(GameCreationEvent.Post event) {
         var game = event.getGame();
         var dirt = Blocks.DIRT;
         var grass = Blocks.GRASS;
@@ -35,7 +35,7 @@ public class GameInitializer {
     }
 
     @Listener
-    public void onGameStarted(GameStartEvent.Post event) {
+    public static void onGameStarted(GameStartEvent.Post event) {
         if (event.getGame() instanceof GameClient && Platform.isClient()) {
             var game = (GameClient) event.getGame();
             var player = game.getPlayer();
