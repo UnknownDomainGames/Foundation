@@ -9,7 +9,7 @@ import nullengine.client.rendering.RenderContext;
 import nullengine.client.rendering.camera.FirstPersonCamera;
 import nullengine.enginemod.client.gui.hud.HUDGame;
 import nullengine.event.Listener;
-import nullengine.event.game.GameCreationEvent;
+import nullengine.event.game.GameCreateEvent;
 import nullengine.event.game.GameStartEvent;
 import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
@@ -22,7 +22,7 @@ import nullengine.world.impl.FlatWorldCreationSetting;
 public class GameInitializer {
 
     @Listener
-    public static void onGameCreated(GameCreationEvent.Post event) {
+    public static void onGameCreated(GameCreateEvent.Post event) {
         var game = event.getGame();
         var dirt = Blocks.DIRT;
         var grass = Blocks.GRASS;
