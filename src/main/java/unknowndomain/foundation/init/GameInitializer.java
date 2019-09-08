@@ -5,7 +5,6 @@ import nullengine.block.Block;
 import nullengine.client.game.GameClient;
 import nullengine.client.gui.Scene;
 import nullengine.client.input.controller.EntityCameraController;
-import nullengine.client.rendering.RenderContext;
 import nullengine.client.rendering.camera.FirstPersonCamera;
 import nullengine.enginemod.client.gui.hud.HUDGame;
 import nullengine.event.Listener;
@@ -13,7 +12,6 @@ import nullengine.event.game.GameCreateEvent;
 import nullengine.event.game.GameStartEvent;
 import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
-import nullengine.player.Player;
 import nullengine.world.WorldCommon;
 import nullengine.world.impl.FlatWorldCreationSetting;
 
@@ -28,7 +26,7 @@ public class GameInitializer {
         var grass = Blocks.GRASS;
         var world = (WorldCommon) game.createWorld("engine:flat", "default", FlatWorldCreationSetting.create().layers(new Block[]{dirt, dirt, dirt, dirt, grass}));
         if (game instanceof GameClient) {
-            Player player = ((GameClient) game).getPlayer();
+            var player = ((GameClient) game).getPlayer();
             world.playerJoin(player);
             player.getControlledEntity().getPosition().set(0, 5, 0);
         }
@@ -39,7 +37,7 @@ public class GameInitializer {
         if (event.getGame() instanceof GameClient && Platform.isClient()) {
             var game = (GameClient) event.getGame();
             var player = game.getPlayer();
-            RenderContext renderContext = Platform.getEngineClient().getRenderContext();
+            var renderContext = Platform.getEngineClient().getRenderManager();
             renderContext.setCamera(new FirstPersonCamera(player));
 
             var entityController = new EntityCameraController(player);
