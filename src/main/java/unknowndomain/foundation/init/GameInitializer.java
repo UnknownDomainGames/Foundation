@@ -7,6 +7,7 @@ import nullengine.client.gui.Scene;
 import nullengine.client.input.controller.EntityCameraController;
 import nullengine.client.rendering.camera.FirstPersonCamera;
 import nullengine.enginemod.client.gui.hud.HUDGame;
+import nullengine.entity.CameraEntity;
 import nullengine.event.Listener;
 import nullengine.event.game.GameCreateEvent;
 import nullengine.event.game.GameStartEvent;
@@ -14,6 +15,7 @@ import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
 import nullengine.world.WorldCommon;
 import nullengine.world.impl.FlatWorldCreationSetting;
+import org.joml.Vector3d;
 
 @AutoRegister
 @AutoListen
@@ -27,8 +29,8 @@ public class GameInitializer {
         var world = (WorldCommon) game.createWorld("engine:flat", "default", FlatWorldCreationSetting.create().layers(new Block[]{dirt, dirt, dirt, dirt, grass}));
         if (game instanceof GameClient) {
             var player = ((GameClient) game).getPlayer();
-            world.playerJoin(player);
-            player.getControlledEntity().getPosition().set(0, 5, 0);
+            var entity = world.spawnEntity(CameraEntity.class, new Vector3d(0, 5, 0));
+            player.controlEntity(entity);
         }
     }
 
