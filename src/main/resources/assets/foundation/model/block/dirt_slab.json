@@ -1,8 +1,0 @@
-{
-  "parent": "foundation/models/block/slab_bottom.json",
-  "textures": {
-    "top": "foundation/textures/block/dirt.png",
-    "bottom": "foundation/textures/block/dirt.png",
-    "side": "foundation/textures/block/dirt.png"
-  }
-}

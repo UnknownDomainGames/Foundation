@@ -8,12 +8,13 @@ import nullengine.client.input.controller.EntityCameraController;
 import nullengine.client.rendering.camera.FirstPersonCamera;
 import nullengine.enginemod.client.gui.hud.HUDGame;
 import nullengine.entity.CameraEntity;
+import nullengine.entity.item.ItemEntity;
 import nullengine.event.Listener;
 import nullengine.event.game.GameCreateEvent;
 import nullengine.event.game.GameStartEvent;
+import nullengine.item.ItemStack;
 import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
-import nullengine.world.WorldCommon;
 import nullengine.world.impl.FlatWorldCreationSetting;
 import org.joml.Vector3d;
 
@@ -26,17 +27,18 @@ public class GameInitializer {
         var game = event.getGame();
         var dirt = Blocks.DIRT;
         var grass = Blocks.GRASS;
-        var world = (WorldCommon) game.createWorld("engine:flat", "default", FlatWorldCreationSetting.create().layers(new Block[]{dirt, dirt, dirt, dirt, grass}));
+        var world = game.createWorld("engine:flat", "default",
+                FlatWorldCreationSetting.create().layers(new Block[]{dirt, dirt, dirt, dirt, grass}));
         if (game instanceof GameClient) {
             var player = ((GameClient) game).getPlayer();
-            var entity = world.spawnEntity(CameraEntity.class, new Vector3d(0, 5, 0));
+            var entity = world.spawnEntity(CameraEntity.class, 0, 7, 0);
             player.controlEntity(entity);
         }
     }
 
     @Listener
     public static void onGameStarted(GameStartEvent.Post event) {
-        if (event.getGame() instanceof GameClient && Platform.isClient()) {
+        if (event.getGame() instanceof GameClient) {
             var game = (GameClient) event.getGame();
             var player = game.getPlayer();
             var renderContext = Platform.getEngineClient().getRenderManager();
