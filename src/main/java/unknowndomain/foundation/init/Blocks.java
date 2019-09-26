@@ -20,7 +20,7 @@ public class Blocks {
 
     @Listener
     public static void onPreInit(ModLifecycleEvent.PreInitialization event) {
-        GRASS.addComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(AssetURL.of("block/grass")));
-        DIRT.addComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(AssetURL.of("block/dirt")));
+        GRASS.setComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(AssetURL.of("block/grass")));
+        DIRT.setComponent(BlockRenderer.class, new DefaultBlockRenderer().setModelPath(AssetURL.of("block/dirt")));
     }
 }
