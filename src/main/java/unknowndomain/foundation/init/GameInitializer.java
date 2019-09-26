@@ -8,15 +8,12 @@ import nullengine.client.input.controller.EntityCameraController;
 import nullengine.client.rendering.camera.FirstPersonCamera;
 import nullengine.enginemod.client.gui.hud.HUDGame;
 import nullengine.entity.CameraEntity;
-import nullengine.entity.item.ItemEntity;
 import nullengine.event.Listener;
 import nullengine.event.game.GameCreateEvent;
 import nullengine.event.game.GameStartEvent;
-import nullengine.item.ItemStack;
 import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
 import nullengine.world.impl.FlatWorldCreationSetting;
-import org.joml.Vector3d;
 
 @AutoRegister
 @AutoListen
@@ -46,9 +43,8 @@ public class GameInitializer {
 
             var entityController = new EntityCameraController(player);
             game.setEntityController(entityController);
-            renderContext.getWindow().addCursorCallback((window, xpos, ypos) -> {
-                entityController.handleCursorMove(xpos, ypos);
-            });
+            // TODO: Remove it
+            renderContext.getWindow().addCursorCallback((window, xpos, ypos) -> entityController.handleCursorMove(xpos, ypos));
             renderContext.getGuiManager().showHud("game-hud", new Scene(new HUDGame()));
         }
     }

@@ -1,9 +1,7 @@
 package unknowndomain.foundation.init;
 
-import nullengine.client.rendering.item.ItemBlockRenderer;
-import nullengine.client.rendering.item.ItemRenderer;
-import nullengine.event.Listener;
-import nullengine.event.mod.ModLifecycleEvent;
+import nullengine.client.rendering.item.ItemDisplay;
+import nullengine.item.BaseItem;
 import nullengine.item.BlockItem;
 import nullengine.item.Item;
 import nullengine.mod.annotation.AutoListen;
@@ -17,9 +15,5 @@ public class Items {
 
     public static final Item DIRT = new BlockItem(Blocks.DIRT);
 
-    @Listener
-    public static void onPreInit(ModLifecycleEvent.PreInitialization event) {
-        GRASS.setComponent(ItemRenderer.class, new ItemBlockRenderer());
-        DIRT.setComponent(ItemRenderer.class, new ItemBlockRenderer());
-    }
+    public static final Item ARROW = new BaseItem().addComponent(ItemDisplay.class, new ItemDisplay().model("item/arrow")).name("arrow");
 }
