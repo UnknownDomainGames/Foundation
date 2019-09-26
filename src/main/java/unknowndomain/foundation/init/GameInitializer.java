@@ -43,8 +43,6 @@ public class GameInitializer {
 
             var entityController = new EntityCameraController(player);
             game.setEntityController(entityController);
-            // TODO: Remove it
-            renderContext.getWindow().addCursorCallback((window, xpos, ypos) -> entityController.handleCursorMove(xpos, ypos));
             renderContext.getGuiManager().showHud("game-hud", new Scene(new HUDGame()));
         }
     }
