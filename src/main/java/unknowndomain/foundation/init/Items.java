@@ -15,5 +15,6 @@ public class Items {
 
     public static final Item DIRT = new BlockItem(Blocks.DIRT);
 
-    public static final Item ARROW = new BaseItem().setComponent(ItemDisplay.class, new ItemDisplay().model("item/arrow")).name("arrow");
+    public static final Item ARROW = new BaseItem().name("arrow")
+            .setComponent(ItemDisplay.class, new ItemDisplay().model("item/arrow"));
 }
