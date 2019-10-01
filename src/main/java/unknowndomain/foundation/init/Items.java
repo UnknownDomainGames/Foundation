@@ -4,17 +4,15 @@ import nullengine.client.rendering.item.ItemDisplay;
 import nullengine.item.BaseItem;
 import nullengine.item.BlockItem;
 import nullengine.item.Item;
-import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
 
 @AutoRegister
-@AutoListen(bus = AutoListen.Bus.MOD)
-public class Items {
+public interface Items {
 
-    public static final Item GRASS = new BlockItem(Blocks.GRASS);
+    Item GRASS = new BlockItem(Blocks.GRASS);
 
-    public static final Item DIRT = new BlockItem(Blocks.DIRT);
+    Item DIRT = new BlockItem(Blocks.DIRT);
 
-    public static final Item ARROW = new BaseItem().name("arrow")
+    Item ARROW = new BaseItem().name("arrow")
             .setComponent(ItemDisplay.class, new ItemDisplay().model("item/arrow"));
 }
