@@ -14,7 +14,10 @@ import nullengine.event.game.GameCreateEvent;
 import nullengine.event.game.GameStartEvent;
 import nullengine.mod.annotation.AutoListen;
 import nullengine.mod.annotation.AutoRegister;
+import nullengine.player.Profile;
 import nullengine.world.impl.FlatWorldCreationSetting;
+
+import java.util.UUID;
 
 @AutoRegister
 @AutoListen
@@ -33,15 +36,14 @@ public class GameInitializer {
     public static void onGameStarted(GameStartEvent.Post event) {
         if (event.getGame() instanceof GameClient) {
             var game = (GameClient) event.getGame();
-            var player = game.getPlayer();
             game.getWorld("default")
                     .map(world -> world.spawnEntity(CameraEntity.class, 0, 6, 0))
-                    .ifPresent(player::controlEntity);
+                    .ifPresent(entity -> game.joinPlayer(new Profile(UUID.randomUUID(), "default"), entity));
 
             var renderContext = Platform.getEngineClient().getRenderManager();
-            renderContext.setCamera(new FirstPersonCamera(player));
+            renderContext.setCamera(new FirstPersonCamera(game.getClientPlayer()));
 
-            var entityController = new EntityCameraController(player);
+            var entityController = new EntityCameraController(game.getClientPlayer());
             game.setEntityController(entityController);
 
             renderContext.getGuiManager().showHud("game-hud", new Scene(new HUDGame()));
