@@ -40,13 +40,15 @@ public class GameInitializer {
                     .map(world -> world.spawnEntity(CameraEntity.class, 0, 6, 0))
                     .ifPresent(entity -> game.joinPlayer(new Profile(UUID.randomUUID(), "default"), entity));
 
-            var renderContext = Platform.getEngineClient().getRenderManager();
-            renderContext.setCamera(new FirstPersonCamera(game.getClientPlayer()));
+            var player = game.getClientPlayer();
 
-            var entityController = new EntityCameraController(game.getClientPlayer());
-            game.setEntityController(entityController);
+            var renderManager = Platform.getEngineClient().getRenderManager();
+            renderManager.setCamera(new FirstPersonCamera(player));
 
-            renderContext.getGuiManager().showHud("game-hud", new Scene(new HUDGame()));
+            var entityController = new EntityCameraController(player);
+            player.setEntityController(entityController);
+
+            renderManager.getGuiManager().showHud("GameHud", new Scene(new HUDGame()));
         }
     }
 }
