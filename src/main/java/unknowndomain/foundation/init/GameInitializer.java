@@ -1,12 +1,8 @@
 package unknowndomain.foundation.init;
 
-import nullengine.Platform;
 import nullengine.block.Block;
 import nullengine.client.game.GameClient;
-import nullengine.client.gui.Scene;
 import nullengine.client.input.controller.EntityCameraController;
-import nullengine.client.rendering.camera.FirstPersonCamera;
-import nullengine.enginemod.client.gui.hud.HUDGame;
 import nullengine.entity.CameraEntity;
 import nullengine.event.Listener;
 import nullengine.event.Order;
@@ -42,13 +38,11 @@ public class GameInitializer {
 
             var player = game.getClientPlayer();
 
-            var renderManager = Platform.getEngineClient().getRenderManager();
-            renderManager.setCamera(new FirstPersonCamera(player));
+//            var renderManager = Platform.getEngineClient().getRenderManager();
 
-            var entityController = new EntityCameraController(player);
-            player.setEntityController(entityController);
+            player.setEntityController(new EntityCameraController());
 
-            renderManager.getGuiManager().showHud("GameHud", new Scene(new HUDGame()));
+//            renderManager.getHUDManager().add(new HUDGame());
         }
     }
 }
