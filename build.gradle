@@ -5,11 +5,11 @@ plugins {
 }
 
 group 'com.github.unknowndomaingame'
-version '0.1.2-snapshot'
+version '0.2.0-snapshot'
 
 sourceCompatibility = targetCompatibility = 11
 
-mainClassName = 'nullengine.client.launch.Bootstrap'
+mainClassName = 'engine.client.launch.Bootstrap'
 
 repositories {
     mavenLocal()
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.panguengine:EngineClient:0.1.2-snapshot'
+    compile 'com.panguengine:client:0.2.0-snapshot'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.1'

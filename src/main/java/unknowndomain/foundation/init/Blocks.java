@@ -1,9 +1,9 @@
 package unknowndomain.foundation.init;
 
-import nullengine.block.BaseBlock;
-import nullengine.block.Block;
-import nullengine.client.rendering.block.BlockDisplay;
-import nullengine.mod.annotation.AutoRegister;
+import engine.block.BaseBlock;
+import engine.block.Block;
+import engine.graphics.block.BlockDisplay;
+import engine.mod.annotation.AutoRegister;
 
 @AutoRegister
 public interface Blocks {

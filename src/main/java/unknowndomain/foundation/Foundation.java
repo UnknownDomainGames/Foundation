@@ -1,14 +1,14 @@
 package unknowndomain.foundation;
 
 import com.google.inject.Inject;
-import nullengine.event.Listener;
-import nullengine.event.mod.ModLifecycleEvent;
-import nullengine.mod.annotation.Dependency;
-import nullengine.mod.annotation.Mod;
+import engine.event.Listener;
+import engine.event.mod.ModLifecycleEvent;
+import engine.mod.annotation.Dependency;
+import engine.mod.annotation.Mod;
 import org.slf4j.Logger;
 
-@Mod(id = "foundation", version = "0.1.2-snapshot", name = "Foundation",
-        dependencies = @Dependency(id = "engine", version = "0.1.2-snapshot"))
+@Mod(id = "foundation", version = "0.2.0-snapshot", name = "Foundation",
+        dependencies = @Dependency(id = "engine", version = "0.2.0-snapshot"))
 public class Foundation {
 
     @Inject

@@ -1,10 +1,10 @@
 package unknowndomain.foundation.init;
 
-import nullengine.client.rendering.item.ItemDisplay;
-import nullengine.item.BaseItem;
-import nullengine.item.BlockItem;
-import nullengine.item.Item;
-import nullengine.mod.annotation.AutoRegister;
+import engine.graphics.item.ItemDisplay;
+import engine.item.BaseItem;
+import engine.item.BlockItem;
+import engine.item.Item;
+import engine.mod.annotation.AutoRegister;
 
 @AutoRegister
 public interface Items {
