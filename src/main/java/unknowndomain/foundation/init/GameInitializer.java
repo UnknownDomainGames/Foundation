@@ -1,10 +1,8 @@
 package unknowndomain.foundation.init;
 
-import engine.Platform;
 import engine.block.Block;
 import engine.client.game.GameClient;
 import engine.client.input.controller.EntityCameraController;
-import engine.enginemod.client.gui.hud.HUDHandingItem;
 import engine.entity.CameraEntity;
 import engine.event.Listener;
 import engine.event.Order;
@@ -39,11 +37,6 @@ public class GameInitializer {
                     .ifPresent(entity -> game.joinPlayer(new Profile(UUID.randomUUID(), "default"), entity));
 
             game.getClientPlayer().setEntityController(new EntityCameraController());
-
-            var renderManager = Platform.getEngineClient().getRenderManager();
-            HUDHandingItem hudHandingItem = new HUDHandingItem();
-            renderManager.getHUDManager().add(hudHandingItem);
-            hudHandingItem.visible().set(true);
         }
     }
 }
