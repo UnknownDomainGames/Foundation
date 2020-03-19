@@ -7,8 +7,8 @@ import engine.mod.annotation.Dependency;
 import engine.mod.annotation.Mod;
 import org.slf4j.Logger;
 
-@Mod(id = "foundation", version = "0.2.0-snapshot", name = "Foundation",
-        dependencies = @Dependency(id = "engine", version = "0.2.0-snapshot"))
+@Mod(id = "foundation", version = "0.1.0-snapshot", name = "Foundation",
+        dependencies = @Dependency(id = "engine", version = "[0.3.1-alpha,)"))
 public class Foundation {
 
     @Inject

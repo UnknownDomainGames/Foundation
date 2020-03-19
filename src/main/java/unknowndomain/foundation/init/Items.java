@@ -13,6 +13,6 @@ public interface Items {
 
     Item DIRT = new BlockItem(Blocks.DIRT);
 
-    Item ARROW = new BaseItem().name("arrow")
-            .setComponent(ItemDisplay.class, new ItemDisplay().model("item/arrow"));
+    Item STICK = new BaseItem().name("stick")
+            .setComponent(ItemDisplay.class, new ItemDisplay().model("item/stick"));
 }

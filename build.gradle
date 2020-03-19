@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.github.unknowndomaingame'
-version '0.2.0-snapshot'
+version '0.1.0-snapshot'
 
 sourceCompatibility = targetCompatibility = 11
 
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.panguengine:client:0.2.0-snapshot'
+    compile 'com.panguengine:client:0.3.1-alpha'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.1'
