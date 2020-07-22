@@ -1,0 +1,6 @@
+{
+  "Parent": "engine:block/cube_all",
+  "Textures": {
+    "All": "block/dirt"
+  }
+}

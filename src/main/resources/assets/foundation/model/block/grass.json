@@ -1,0 +1,8 @@
+{
+  "Parent": "engine:block/cube_top_bottom",
+  "Textures": {
+    "Top": "block/grass_top",
+    "Bottom": "block/dirt",
+    "Side": "block/grass_side"
+  }
+}
