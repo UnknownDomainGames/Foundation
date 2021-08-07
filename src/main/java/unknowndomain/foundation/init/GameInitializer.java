@@ -1,6 +1,7 @@
 package unknowndomain.foundation.init;
 
 import engine.block.Block;
+import engine.block.state.BlockState;
 import engine.client.game.GameClient;
 import engine.client.input.controller.EntityCameraController;
 import engine.entity.CameraEntity;
@@ -22,10 +23,10 @@ public class GameInitializer {
     @Listener(order = Order.FIRST)
     public static void onGameCreated(GameCreateEvent.Post event) {
         var game = event.getGame();
-        var dirt = Blocks.DIRT;
-        var grass = Blocks.GRASS;
+        var dirt = Blocks.DIRT.getDefaultState();
+        var grass = Blocks.GRASS.getDefaultState();
         game.createWorld("engine:flat", "default",
-                FlatWorldCreationSetting.create().layers(new Block[]{dirt, dirt, dirt, dirt, grass}));
+                FlatWorldCreationSetting.create().layers(new BlockState[]{dirt, dirt, dirt, dirt, grass}));
     }
 
     @Listener(order = Order.FIRST)
