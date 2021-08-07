@@ -13,6 +13,9 @@ public interface Items {
 
     Item DIRT = new BlockItem(Blocks.DIRT);
 
+
+    Item GLASS = new BlockItem(Blocks.GLASS);
+
     Item STICK = new BaseItem().name("stick")
             .setComponent(ItemDisplay.class, new ItemDisplay().model("item/stick"));
 }
