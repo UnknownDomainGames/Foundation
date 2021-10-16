@@ -10,7 +10,6 @@ version '0.1.0-snapshot'
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
-    mavenLocal()
     maven { url 'https://jitpack.io' }
     mavenCentral()
 }
