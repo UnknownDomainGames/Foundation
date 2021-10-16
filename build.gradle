@@ -1,28 +1,21 @@
 plugins {
     id 'java'
-    id 'application'
-    id 'maven'
+    id 'java-library'
+    id 'maven-publish'
 }
 
 group 'com.github.unknowndomaingame'
 version '0.1.0-snapshot'
 
-sourceCompatibility = targetCompatibility = 11
-
-mainClassName = 'engine.client.launch.Bootstrap'
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenLocal()
-    maven {
-        url 'https://jitpack.io'
-    }
-    jcenter()
+    maven { url 'https://jitpack.io' }
     mavenCentral()
 }
 
 dependencies {
-    compile 'com.panguengine:client:0.3.1-alpha'
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.1'
+    implementation 'com.github.UnknownDomainGames:PanguEngine:39164bf632'
+    annotationProcessor 'com.github.UnknownDomainGames:PanguEngine:39164bf632'
 }
