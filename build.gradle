@@ -16,6 +16,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.UnknownDomainGames:PanguEngine:39164bf632'
+    implementation 'com.github.UnknownDomainGames:PanguEngine:39164bf632' // waiting for next release supported jitpack
     annotationProcessor 'com.github.UnknownDomainGames:PanguEngine:39164bf632'
 }
