@@ -1,20 +1,19 @@
-plugins {
-    id 'java'
-    id 'java-library'
-    id 'maven-publish'
+buildscript {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.github.UnknownDomainGames:GradlePlugin:bef1a1966f'
+    }
 }
+apply plugin: 'pangu-gradle'
 
 group 'com.github.unknowndomaingame'
 version '0.1.0-snapshot'
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_11
-
-repositories {
-    maven { url 'https://jitpack.io' }
-    mavenCentral()
+dependencies {
 }
 
-dependencies {
-    implementation 'com.github.UnknownDomainGames:PanguEngine:39164bf632' // waiting for next release supported jitpack
-    annotationProcessor 'com.github.UnknownDomainGames:PanguEngine:39164bf632'
+engine {
+    version '64c261fd9d'
 }

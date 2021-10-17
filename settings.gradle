@@ -1,2 +1,9 @@
-rootProject.name = 'Foundation'
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
+    }
+}
 
+rootProject.name = 'Foundation'
