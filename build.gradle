@@ -1,9 +1,12 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.github.UnknownDomainGames:GradlePlugin:bef1a1966f'
+        classpath 'com.github.UnknownDomainGames:GradlePlugin:61546d76ba'
     }
 }
 apply plugin: 'pangu-gradle'
@@ -15,5 +18,5 @@ dependencies {
 }
 
 engine {
-    version '64c261fd9d'
+    version 'f79286a53a'
 }
